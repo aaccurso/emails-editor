@@ -1,0 +1,18 @@
+.emails-editor {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.emails-editor .emails-editor-content {
+    background: #F8F8F7;
+    border-radius: 8px;
+    padding: 24px 50px ;
+}
+
+.emails-editor .email-list {
+    background: #FFFFFF;
+    border: 1px solid #C3C2CF;
+    box-sizing: border-box;
+    border-radius: 4px;
+}

@@ -6,7 +6,11 @@ export class EmailInput {
 		this.props = props;
 		this.element = new HtmlElement(
 			'input',
-			{ type: 'text', placeholder: 'add more people...' },
+			{
+				type: 'email',
+				placeholder: 'add more people...',
+				className: 'email-input',
+			},
 		);
 		this.onKeyUpHandler = this.onKeyUpHandler.bind(this);
 		this.onChangeHandler = this.onChangeHandler.bind(this);

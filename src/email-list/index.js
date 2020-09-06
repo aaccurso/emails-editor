@@ -5,7 +5,9 @@ import { differenceBy } from "../utils";
 export class EmailList {
 	constructor(props) {
 		this.props = props;
-		this.element = new HtmlElement('ul');
+		this.element = new HtmlElement('ul', {
+			className: 'email-list',
+		});
 		this.previousEmails = [];
 		this.render(this.props);
 	}

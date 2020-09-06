@@ -1,3 +1,4 @@
+import './index.css';
 import { EmailList } from './email-list';
 import { EmailInput } from './email-input';
 import { HtmlElement } from './html-element';
@@ -9,14 +10,21 @@ function EmailsEditor(containerNode, options = {}) {
 		emails: options.emails || [],
 	};
 	// <EmailsEditor/>
-	const emailsEditor = new HtmlElement(containerNode);
+	const emailsEditor = new HtmlElement(containerNode, {
+		className: 'emails-editor',
+	});
+	// <EmailsEditorContent/>
+	const emailsEditorContent = new HtmlElement('div', {
+		className: 'emails-editor-content',
+	});
+	emailsEditor.appendChild(emailsEditorContent);
 	// <EmailList/>
 	const removeEmail = emailToRemove => {
 		state.emails = removeItem(state.emails, emailToRemove, 'value');
 		emailList.render(state);
 	};
 	const emailList = new EmailList({ emails: state.emails, onRemove: removeEmail });
-	emailsEditor.appendChild(emailList.element);
+	emailsEditorContent.appendChild(emailList.element);
 	// <EmailInput/>
 	const addEmails = emails => {
 		const newEmails = differenceBy(emails, state.emails, 'value');
@@ -27,7 +35,7 @@ function EmailsEditor(containerNode, options = {}) {
 		emailList.render({ emails: state.emails });
 	};
 	const emailInput = new EmailInput({ onChange: addEmails });
-	emailsEditor.appendChild(emailInput.element);
+	emailsEditorContent.appendChild(emailInput.element);
 }
 
 window.EmailsEditor = EmailsEditor;
