@@ -1,0 +1,16 @@
+{
+  "name": "emails-editor",
+  "version": "1.0.0",
+  "description": "Web component to edit a list of emails.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alan Accurso",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
