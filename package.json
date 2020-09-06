@@ -5,12 +5,15 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack",
+    "start": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alan Accurso",
   "license": "ISC",
   "devDependencies": {
+    "html-webpack-plugin": "^4.4.1",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
