@@ -22,6 +22,19 @@ export class HtmlElement {
 		return this;
 	}
 
+	setKey(value) {
+		this.node.setAttribute('key', value);
+
+		return this;
+	}
+
+	removeChildByKey(value) {
+		const childToRemove = this.node.querySelector(`[key=${value}]`);
+		this.node.removeChild(childToRemove);
+
+		return this;
+	}
+
 	setChangeEvent(handler) {
 		this.node.addEventListener('change', handler);
 

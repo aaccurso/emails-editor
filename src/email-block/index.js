@@ -7,5 +7,6 @@ export class EmailBlock {
 			'li',
 			{ innerHTML: email.value },
 		);
+		this.element.setKey(email.value);
 	}
 }
