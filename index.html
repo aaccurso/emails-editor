@@ -8,8 +8,18 @@
     <div id="emails-editor"></div>
     <script src="main.js"></script>
     <script>
-        var inputContainerNode = document.querySelector('#emails-editor');
-        var emailsInput = EmailsEditor(inputContainerNode);
+        const emailsEditorOptions = {
+            emails: [
+                {
+                    value: 'test@mail.com',
+                },
+                {
+                    value: 'test1@mail.com',
+                }
+            ],
+        };
+        const containerNode = document.querySelector('#emails-editor');
+        const emailsEditor = EmailsEditor(containerNode, emailsEditorOptions);
     </script>
 </body>
 </html>
