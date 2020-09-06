@@ -11,13 +11,17 @@
         const emailsEditorOptions = {
             emails: [
                 {
-                    value: 'test@mail.com',
+                    value: 'john@mail.com',
                     isValid: true,
                 },
                 {
-                    value: 'test1@mail.com',
+                    value: 'invalid.email',
+                    isValid: false,
+                },
+                {
+                    value: 'mike@miro.com',
                     isValid: true,
-                }
+                },
             ],
         };
         const containerNode = document.querySelector('#emails-editor');

@@ -15,4 +15,62 @@
     border: 1px solid #C3C2CF;
     box-sizing: border-box;
     border-radius: 4px;
+    display: flex;
+    list-style: none;
+    padding-inline-start: 0;
+    padding: 4px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.emails-editor .email-block {
+    padding: 2px 4px;
+    margin: 4px;
+    background: rgba(102, 153, 255, 0.2);
+    border-radius: 100px;
+}
+
+.emails-editor .email-block.is-invalid {
+    margin-right: 4px;
+    background: none;
+    border-radius: 0;
+    border-bottom: #D92929 dashed 1px;
+}
+
+.emails-editor .email-block.is-invalid .email-block-label {
+    margin-left: 0;
+}
+
+.emails-editor .email-block-label {
+    margin-left: 10px;
+}
+
+.emails-editor .email-block-remove-button {
+    border: none;
+    background: none;
+    width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    margin: 0 3px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color 100ms ease-in-out;
+}
+
+.emails-editor .email-block-remove-button:hover {
+    background: rgba(217, 41, 41, 0.5);
+}
+
+.emails-editor .email-input {
+    border: none;
+    margin: 4px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.emails-editor .email-input::placeholder {
+    color: #C3C2CF;
 }

@@ -20,6 +20,12 @@ export class HtmlElement {
 		return this;
 	}
 
+	insertBefore(htmlElement, nextSiblingElement) {
+		this.node.insertBefore(htmlElement.node, nextSiblingElement.node);
+
+		return this;
+	}
+
 	setKey(value) {
 		this.node.setAttribute('key', value);
 

@@ -1,6 +1,7 @@
 import { HtmlElement } from '../html-element';
 import { EmailBlock } from '../email-block';
 import { differenceBy } from "../utils";
+import {EmailInput} from "../email-input";
 
 export class EmailList {
 	constructor(props) {
@@ -8,6 +9,8 @@ export class EmailList {
 		this.element = new HtmlElement('ul', {
 			className: 'email-list',
 		});
+		this.emailInput = new EmailInput({ onChange: this.props.onChange });
+		this.element.appendChild(this.emailInput.element);
 		this.previousEmails = [];
 		this.render(this.props);
 	}
@@ -20,7 +23,7 @@ export class EmailList {
 		});
 		addedEmails.forEach(email => {
 			const emailBlock = new EmailBlock({ email, onRemove: this.props.onRemove });
-			this.element.appendChild(emailBlock.element);
+			this.element.insertBefore(emailBlock.element, this.emailInput.element);
 		});
 		this.previousEmails = [...emails];
 	}

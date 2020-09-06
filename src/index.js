@@ -19,13 +19,6 @@ function EmailsEditor(containerNode, options = {}) {
 	});
 	emailsEditor.appendChild(emailsEditorContent);
 	// <EmailList/>
-	const removeEmail = emailToRemove => {
-		state.emails = removeItem(state.emails, emailToRemove, 'value');
-		emailList.render(state);
-	};
-	const emailList = new EmailList({ emails: state.emails, onRemove: removeEmail });
-	emailsEditorContent.appendChild(emailList.element);
-	// <EmailInput/>
 	const addEmails = emails => {
 		const newEmails = differenceBy(emails, state.emails, 'value');
 		state.emails = [
@@ -34,8 +27,12 @@ function EmailsEditor(containerNode, options = {}) {
 		];
 		emailList.render({ emails: state.emails });
 	};
-	const emailInput = new EmailInput({ onChange: addEmails });
-	emailsEditorContent.appendChild(emailInput.element);
+	const removeEmail = emailToRemove => {
+		state.emails = removeItem(state.emails, emailToRemove, 'value');
+		emailList.render(state);
+	};
+	const emailList = new EmailList({ emails: state.emails, onRemove: removeEmail, onChange: addEmails });
+	emailsEditorContent.appendChild(emailList.element);
 }
 
 window.EmailsEditor = EmailsEditor;
