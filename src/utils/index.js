@@ -8,4 +8,22 @@ export const removeItem = (array, item, key) => {
 		...array.slice(0, itemIndex),
 		...array.slice(itemIndex + 1, array.length),
 	];
-}
+};
+
+export const ENTER_KEY = 13;
+export const COMMA_KEY = 188;
+
+const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+const validateEmail = email => EMAIL_REGEX.test(email);
+
+export const transformValueToEmails = value => value.split(',').map(rawEmail => {
+	const email = rawEmail.trim();
+
+	return {
+		value: email,
+		isValid: validateEmail(email),
+	};
+})
+// Filter empty emails
+.filter(email => Boolean(email.value));

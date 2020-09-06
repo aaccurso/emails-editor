@@ -16,7 +16,7 @@ export class EmailBlock {
 			type: 'button',
 			innerHTML: 'x',
 		});
-		this.emailBlockRemoveButton.setClickEvent(this.removeEmail.bind(this));
+		this.emailBlockRemoveButton.setEvent('click', this.removeEmail.bind(this));
 		this.element.appendChild(this.emailBlockRemoveButton);
 	}
 

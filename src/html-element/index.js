@@ -1,5 +1,3 @@
-const ENTER_KEY = 13;
-
 export class HtmlElement {
 	constructor(node, options) {
 		// When node is a string then create element
@@ -35,30 +33,12 @@ export class HtmlElement {
 		return this;
 	}
 
-	setChangeEvent(handler) {
-		this.node.addEventListener('change', event => {
+	setEvent(eventName, handler) {
+		this.node.addEventListener(eventName, event => {
 			event.preventDefault();
 			handler(event);
 		});
 
 		return this;
-	}
-
-	setClickEvent(handler) {
-		this.node.addEventListener('click', event => {
-			event.preventDefault();
-			handler(event);
-		});
-
-		return this;
-	}
-
-	setPressEnterEvent(handler) {
-		this.node.addEventListener('keyup', event => {
-			if (event.keyCode === ENTER_KEY) {
-				event.preventDefault();
-				handler(event);
-			}
-		});
 	}
 }
