@@ -5,6 +5,11 @@
     <title>Emails Editor</title>
 </head>
 <body>
-    <script src="dist/main.js"></script>
+    <div id="emails-editor"></div>
+    <script src="main.js"></script>
+    <script>
+        var inputContainerNode = document.querySelector('#emails-editor');
+        var emailsInput = EmailsEditor(inputContainerNode);
+    </script>
 </body>
 </html>
