@@ -8,7 +8,6 @@ export class EmailInput {
 			{ type: 'text', placeholder: 'add more people...' },
 		);
 		this.onChangeHandler = this.onChangeHandler.bind(this);
-		this.element.setChangeEvent(this.onChangeHandler);
 		this.element.setPressEnterEvent(this.onChangeHandler);
 	}
 

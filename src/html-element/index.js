@@ -29,14 +29,26 @@ export class HtmlElement {
 	}
 
 	removeChildByKey(value) {
-		const childToRemove = this.node.querySelector(`[key=${value}]`);
+		const childToRemove = this.node.querySelector(`[key="${value}"]`);
 		this.node.removeChild(childToRemove);
 
 		return this;
 	}
 
 	setChangeEvent(handler) {
-		this.node.addEventListener('change', handler);
+		this.node.addEventListener('change', event => {
+			event.preventDefault();
+			handler(event);
+		});
+
+		return this;
+	}
+
+	setClickEvent(handler) {
+		this.node.addEventListener('click', event => {
+			event.preventDefault();
+			handler(event);
+		});
 
 		return this;
 	}
@@ -45,8 +57,7 @@ export class HtmlElement {
 		this.node.addEventListener('keyup', event => {
 			if (event.keyCode === ENTER_KEY) {
 				event.preventDefault();
-
-				return handler(event);
+				handler(event);
 			}
 		});
 	}

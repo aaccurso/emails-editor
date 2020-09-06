@@ -1,6 +1,7 @@
 import { EmailList } from './email-list';
 import { EmailInput } from './email-input';
 import { HtmlElement } from './html-element';
+import { removeItem } from './utils';
 
 function EmailsEditor(containerNode, options = {}) {
 	// State
@@ -10,14 +11,18 @@ function EmailsEditor(containerNode, options = {}) {
 	// <EmailsEditor/>
 	const emailsEditor = new HtmlElement(containerNode);
 	// <EmailList/>
-	const emailList = new EmailList(state);
-	emailsEditor.appendChild(emailList.element);
-	// <EmailInput/>
-	const onEmailInputChange = email => {
-		state.emails.push(email);
+	const removeEmail = emailToRemove => {
+		state.emails = removeItem(state.emails, emailToRemove, 'value');
 		emailList.render(state);
 	};
-	const emailInput = new EmailInput({ onChange: onEmailInputChange });
+	const emailList = new EmailList({ emails: state.emails, onRemove: removeEmail });
+	emailsEditor.appendChild(emailList.element);
+	// <EmailInput/>
+	const addEmail = email => {
+		state.emails.push(email);
+		emailList.render({ emails: state.emails });
+	};
+	const emailInput = new EmailInput({ onChange: addEmail });
 	emailsEditor.appendChild(emailInput.element);
 }
 

@@ -17,7 +17,7 @@ export class EmailList {
 			this.element.removeChildByKey(email.value);
 		});
 		addedEmails.forEach(email => {
-			const emailBlock = new EmailBlock({ email });
+			const emailBlock = new EmailBlock({ email, onRemove: this.props.onRemove });
 			this.element.appendChild(emailBlock.element);
 		});
 		this.previousEmails = [...emails];
