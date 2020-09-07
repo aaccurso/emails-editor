@@ -6,6 +6,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 24px;
+    outline-color: rgba(195, 194, 207, 0.8);
 }
 
 .emails-editor .email-input::placeholder {

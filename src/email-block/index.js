@@ -1,23 +1,24 @@
 import './styles.css';
-import { HtmlElement } from '../html-element';
-import { Widget, SimpleWidget } from '../widget';
+import {HtmlElement} from '../html-element';
+import {SimpleWidget, Widget} from '../widget';
 import removeIcon from './remove.svg';
 
 export class EmailBlock extends Widget {
 	constructor(props) {
 		super(props);
+		const { value, isValid } = this.props.email;
 		// <EmailBlock/>
 		this.element = new HtmlElement(
 			'li',
 			{
-				className: `email-block ${this.props.email.isValid ? 'is-valid' : 'is-invalid'}`,
+				className: `email-block ${isValid ? 'is-valid' : 'is-invalid'}`,
 			})
-		.setKey(this.props.email.value);
+			.setKey(value);
 		// <EmailBlockLabel/>
 		this.emailBlockLabel = new SimpleWidget(
 			'span',
 			{
-				innerHTML: this.props.email.value,
+				innerHTML: value,
 				className: 'email-block-label',
 			});
 		// <EmailBlockRemoveButton/>
@@ -28,6 +29,7 @@ export class EmailBlock extends Widget {
 				innerHTML: removeIcon,
 				className: 'email-block-remove-button',
 			});
+		this.emailBlockRemoveButton.element.node.setAttribute('aria-label', `Remove ${value}`);
 		this.emailBlockRemoveButton.element.setEvent('click', this.removeEmail.bind(this));
 		// Add children
 		this.addChildren(this.emailBlockLabel, this.emailBlockRemoveButton);
