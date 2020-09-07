@@ -1,21 +1,23 @@
 import { HtmlElement } from '../html-element';
 import { EmailBlock } from '../email-block';
 import { differenceBy } from "../utils";
-import {EmailInput} from "../email-input";
+import { EmailInput } from "../email-input";
+import { Widget } from '../widget';
 
-export class EmailList {
+export class EmailList extends Widget {
 	constructor(props) {
-		this.props = props;
+		super(props);
 		this.element = new HtmlElement('ul', {
 			className: 'email-list',
 		});
 		this.emailInput = new EmailInput({ onChange: this.props.onChange });
-		this.element.appendChild(this.emailInput.element);
+		this.addChildren(this.emailInput);
 		this.previousEmails = [];
-		this.render(this.props);
+		this.update(this.props);
 	}
 
-	render({ emails }) {
+	update(props) {
+		const { emails } = props;
 		const addedEmails = differenceBy(emails, this.previousEmails, 'value');
 		const removedEmails = differenceBy(this.previousEmails, emails, 'value');
 		removedEmails.forEach(email => {
@@ -26,5 +28,6 @@ export class EmailList {
 			this.element.insertBefore(emailBlock.element, this.emailInput.element);
 		});
 		this.previousEmails = [...emails];
+		super.update(props);
 	}
 }

@@ -1,53 +1,51 @@
-import { EmailList } from '../email-list';
 import { HtmlElement } from '../html-element';
+import { Widget } from '../widget';
 import { differenceBy, removeItem } from '../utils';
+import { EmailsEditorFooter } from '../emails-editor-footer';
+import { EmailsEditorContent } from '../emails-editor-content';
 
-export class EmailsEditor {
+export class EmailsEditor extends Widget {
 	constructor(props) {
+		super(props);
+		this.addEmails = this.addEmails.bind(this);
+		this.removeEmail = this.removeEmail.bind(this);
 		// State
 		this.state = {
 			emails: props.emails || [],
 		};
-		// <EmailList/>
-		this.emailList = new EmailList({
-			emails: this.state.emails,
-			onRemove: this.removeEmail.bind(this),
-			onChange: this.addEmails.bind(this),
-		});
-		// <EmailsEditorContent/>
-		this.emailsEditorContent = new HtmlElement(
-			'div',
-			{
-				className: 'emails-editor-content',
-			})
-			.appendChild(this.emailList.element);
-		// <EmailsEditorFooter/>
-		this.emailsEditorFooter = new HtmlElement(
-			'div',
-			{
-				className: 'emails-editor-footer',
-			});
 		// <EmailsEditor/>
 		this.element = new HtmlElement(
 			props.containerNode,
 			{
 				className: 'emails-editor',
-			})
-			.appendChild(this.emailsEditorContent)
-			.appendChild(this.emailsEditorFooter);
+			});
+		// <EmailsEditorContent/>
+		this.emailsEditorContent = new EmailsEditorContent({
+			...this.state,
+			onRemove: this.removeEmail,
+			onChange: this.addEmails,
+		});
+		// <EmailsEditorFooter/>
+		this.emailsEditorFooter = new EmailsEditorFooter({
+			...this.state,
+			addEmails: this.addEmails,
+		});
+		this.addChildren(this.emailsEditorContent, this.emailsEditorFooter);
 	}
 
 	addEmails(emails) {
 		const newEmails = differenceBy(emails, this.state.emails, 'value');
-		this.state.emails = [
-			...this.state.emails,
-			...newEmails,
-		];
-		this.emailList.render({ emails: this.state.emails });
+		this.setState({
+			emails: [
+				...this.state.emails,
+				...newEmails,
+			],
+		});
 	}
 
 	removeEmail(emailToRemove) {
-		this.state.emails = removeItem(this.state.emails, emailToRemove, 'value');
-		this.emailList.render(this.state);
+		this.setState({
+			emails: removeItem(this.state.emails, emailToRemove, 'value'),
+		});
 	}
 }

@@ -1,5 +1,5 @@
 export class HtmlElement {
-	constructor(node, options) {
+	constructor(node, options = {}) {
 		// When node is a string then create element
 		if (typeof node === 'string') {
 			this.node = document.createElement(node);

@@ -1,9 +1,10 @@
 import { HtmlElement } from '../html-element';
+import { Widget } from '../widget';
 import { COMMA_KEY, ENTER_KEY, transformValueToEmails } from "../utils";
 
-export class EmailInput {
+export class EmailInput extends Widget {
 	constructor(props) {
-		this.props = props;
+		super(props);
 		this.element = new HtmlElement(
 			'input',
 			{

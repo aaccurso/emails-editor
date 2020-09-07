@@ -1,38 +1,38 @@
 import { HtmlElement } from '../html-element';
+import { Widget, SimpleWidget } from '../widget';
 import removeIcon from './remove.svg';
 
-export class EmailBlock {
+export class EmailBlock extends Widget {
 	constructor(props) {
-		this.props = props;
-		this.email = props.email;
+		super(props);
+		// <EmailBlock/>
+		this.element = new HtmlElement(
+			'li',
+			{
+				className: `email-block ${this.props.email.isValid ? 'is-valid' : 'is-invalid'}`,
+			})
+		.setKey(this.props.email.value);
 		// <EmailBlockLabel/>
-		this.emailBlockLabel = new HtmlElement(
+		this.emailBlockLabel = new SimpleWidget(
 			'span',
 			{
-				innerHTML: this.email.value,
+				innerHTML: this.props.email.value,
 				className: 'email-block-label',
 			});
 		// <EmailBlockRemoveButton/>
-		this.emailBlockRemoveButton = new HtmlElement(
+		this.emailBlockRemoveButton = new SimpleWidget(
 			'button',
 			{
 				type: 'button',
 				innerHTML: removeIcon,
 				className: 'email-block-remove-button',
-			})
-			.setEvent('click', this.removeEmail.bind(this));
-		// <EmailBlock/>
-		this.element = new HtmlElement(
-			'li',
-			{
-				className: `email-block ${this.email.isValid ? 'is-valid' : 'is-invalid'}`,
-			})
-			.setKey(this.email.value)
-			.appendChild(this.emailBlockLabel)
-			.appendChild(this.emailBlockRemoveButton);
+			});
+		this.emailBlockRemoveButton.element.setEvent('click', this.removeEmail.bind(this));
+		// Add children
+		this.addChildren(this.emailBlockLabel, this.emailBlockRemoveButton);
 	}
 
 	removeEmail() {
-		this.props.onRemove(this.email);
+		this.props.onRemove(this.props.email);
 	}
 }
