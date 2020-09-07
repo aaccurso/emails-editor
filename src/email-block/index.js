@@ -1,3 +1,4 @@
+import './styles.css';
 import { HtmlElement } from '../html-element';
 import { Widget, SimpleWidget } from '../widget';
 import removeIcon from './remove.svg';

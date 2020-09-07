@@ -1,3 +1,4 @@
+import './styles.css';
 import { HtmlElement } from '../html-element';
 import { EmailBlock } from '../email-block';
 import { differenceBy } from "../utils";

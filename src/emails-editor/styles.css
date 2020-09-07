@@ -1,0 +1,10 @@
+.emails-editor {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    overflow: hidden;
+}

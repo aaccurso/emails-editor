@@ -1,0 +1,10 @@
+.emails-editor .emails-editor-content {
+    background: #F8F8F7;
+    padding: 24px 50px ;
+}
+
+.emails-editor .emails-editor-content .header {
+    font-size: 20px;
+    line-height: 27px;
+    color: #050038;
+}

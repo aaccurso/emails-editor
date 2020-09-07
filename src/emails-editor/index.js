@@ -1,3 +1,4 @@
+import './styles.css';
 import { HtmlElement } from '../html-element';
 import { Widget } from '../widget';
 import { differenceBy, removeItem } from '../utils';

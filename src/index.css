@@ -1,83 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-.emails-editor {
-    background: #FFFFFF;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-}
-
-.emails-editor .emails-editor-content {
-    background: #F8F8F7;
-    border-radius: 8px;
-    padding: 24px 50px ;
-}
-
-.emails-editor .email-list {
-    background: #FFFFFF;
-    border: 1px solid #C3C2CF;
-    box-sizing: border-box;
-    border-radius: 4px;
-    list-style: none;
-    padding-inline-start: 0;
-    padding: 4px;
-    display: flex;
-    flex-wrap: wrap;
-    max-height: 96px;
-    overflow-y: auto;
-}
-
-.emails-editor .email-block {
-    padding: 2px 4px;
-    margin: 4px;
-    background: rgba(102, 153, 255, 0.2);
-    border-radius: 100px;
-}
-
-.emails-editor .email-block.is-invalid {
-    margin-right: 4px;
-    background: none;
-    border-radius: 0;
-    border-bottom: #D92929 dashed 1px;
-}
-
-.emails-editor .email-block.is-invalid .email-block-label {
-    margin-left: 0;
-}
-
-.emails-editor .email-block-label {
-    margin-left: 10px;
-}
-
-.emails-editor .email-block-remove-button {
+.emails-editor .button {
+    border-radius: 6px;
+    padding: 10px 16px;
+    color: #FFFFFF;
+    background: #4262FF;
     border: none;
-    background: none;
-    width: 16px;
-    height: 16px;
-    padding: 0 4px;
-    margin: 0 3px;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: background-color 100ms ease-in-out;
-}
-
-.emails-editor .email-block-remove-button:hover {
-    background: rgba(217, 41, 41, 0.5);
-}
-
-.emails-editor .email-input {
-    border: none;
-    padding: 4px;
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
+    margin-right: 16px;
     font-size: 14px;
     line-height: 24px;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
 }
 
-.emails-editor .email-input::placeholder {
-    color: #C3C2CF;
+.emails-editor .button:hover {
+    background-color: rgba(66, 98, 255, 0.8);
 }

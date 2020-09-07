@@ -1,5 +1,6 @@
+import './styles.css';
 import { HtmlElement } from '../html-element';
-import { Widget } from '../widget';
+import { SimpleWidget, Widget } from '../widget';
 import { EmailList } from '../email-list';
 
 export class EmailsEditorContent extends Widget {
@@ -11,11 +12,16 @@ export class EmailsEditorContent extends Widget {
 			{
 				className: 'emails-editor-content',
 			});
+		// <EmailsEditorContentHeader/>
+		this.header = new SimpleWidget('div', {
+			className: 'header',
+			innerHTML: 'Share <strong>Board name</strong> with others',
+		});
 		// <EmailList/>
 		this.emailList = new EmailList({
 			...this.state,
 			...this.props,
 		});
-		this.addChildren(this.emailList);
+		this.addChildren(this.header, this.emailList);
 	}
 }

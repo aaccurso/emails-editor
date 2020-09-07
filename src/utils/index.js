@@ -1,3 +1,10 @@
+export const generateRandomString = () => Math.random().toString(36).substring(2, 15);
+
+export const generateRandomEmail = () => ({
+	value: `${generateRandomString()}@mail.com`,
+	isValid: true,
+});
+
 export const differenceBy = (array1, array2, key) => {
 	return array1.filter(a => !array2.some(b => b[key] === a[key]))
 };
@@ -13,7 +20,7 @@ export const removeItem = (array, item, key) => {
 export const ENTER_KEY = 13;
 export const COMMA_KEY = 188;
 
-const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const EMAIL_REGEX = /^\w+([\.-]?(\w|\d)+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const validateEmail = email => EMAIL_REGEX.test(email);
 

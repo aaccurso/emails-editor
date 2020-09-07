@@ -1,0 +1,13 @@
+.emails-editor .email-input {
+    border: none;
+    padding: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.emails-editor .email-input::placeholder {
+    color: #C3C2CF;
+}
