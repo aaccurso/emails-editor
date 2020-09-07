@@ -15,7 +15,7 @@ export class EmailsEditorContent extends Widget {
 		// <EmailsEditorContentHeader/>
 		this.header = new SimpleWidget('div', {
 			className: 'header',
-			innerHTML: 'Share <strong>Board name</strong> with others',
+			innerHTML: this.props.headerTitle || 'Emails Editor',
 		});
 		// <EmailList/>
 		this.emailList = new EmailList({

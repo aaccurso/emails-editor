@@ -23,6 +23,7 @@ export class EmailsEditor extends Widget {
 		// <EmailsEditorContent/>
 		this.emailsEditorContent = new EmailsEditorContent({
 			...this.state,
+			headerTitle: this.props.headerTitle,
 			onRemove: this.removeEmail,
 			onChange: this.addEmails,
 		});
