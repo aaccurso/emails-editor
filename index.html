@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emails Editor</title>
+</head>
+<body>
+    <div id="empty-emails-editor"></div>
+    <div id="emails-editor"></div>
+    <script src="main.js"></script>
+    <script>
+        EmailsEditor(document.querySelector('#empty-emails-editor'));
+        const emailsEditorOptions = {
+            emails: [
+                {
+                    value: 'john@mail.com',
+                    isValid: true,
+                },
+                {
+                    value: 'invalid.email',
+                    isValid: false,
+                },
+                {
+                    value: 'mike@miro.com',
+                    isValid: true,
+                },
+            ],
+        };
+        EmailsEditor(
+            document.querySelector('#emails-editor'),
+            emailsEditorOptions,
+        );
+    </script>
+</body>
+</html>
