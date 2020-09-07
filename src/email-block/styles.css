@@ -10,6 +10,7 @@
     background: none;
     border-radius: 0;
     border-bottom: #D92929 dashed 1px;
+    padding: 2px 0 2px 2px;
 }
 
 .emails-editor .email-block.is-invalid .email-block-label {
@@ -26,7 +27,7 @@
     width: 16px;
     height: 16px;
     padding: 0 4px;
-    margin: 0 3px;
+    margin-left: 4px;
     cursor: pointer;
     border-radius: 2px;
     transition: background-color 100ms ease-in-out;
