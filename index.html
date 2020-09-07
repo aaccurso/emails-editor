@@ -5,13 +5,15 @@
     <title>Emails Editor</title>
 </head>
 <body>
-    <h1>Emails Editor</h1>
-    <h2>Basic usage</h2>
+    <div class="container">
+        <h1>Emails Editor</h1>
+    </div>
     <div class="widget-container">
+        <h2>Basic usage</h2>
         <div id="empty-emails-editor"></div>
     </div>
-    <h2>Advanced usage</h2>
     <div class="widget-container">
+        <h2>Advanced usage</h2>
         <div id="emails-editor"></div>
         <p id="initial-emails-count"></p>
     </div>
@@ -44,10 +46,13 @@
         `;
     </script>
     <style>
-        .widget-container {
-            padding: 50px 100px;
+        .container {
+            padding: 0 10vw;
         }
-        h1, h2 {
+        .widget-container {
+            padding: 10px 10vw;
+        }
+        h1, h2, p {
             font-family: 'Open Sans', sans-serif;
         }
     </style>
