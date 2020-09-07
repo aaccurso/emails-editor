@@ -5,9 +5,11 @@
     <title>Emails Editor</title>
 </head>
 <body>
+    <div id="empty-emails-editor"></div>
     <div id="emails-editor"></div>
     <script src="main.js"></script>
     <script>
+        EmailsEditor(document.querySelector('#empty-emails-editor'));
         const emailsEditorOptions = {
             emails: [
                 {
@@ -24,8 +26,10 @@
                 },
             ],
         };
-        const containerNode = document.querySelector('#emails-editor');
-        const emailsEditor = EmailsEditor(containerNode, emailsEditorOptions);
+        EmailsEditor(
+            document.querySelector('#emails-editor'),
+            emailsEditorOptions,
+        );
     </script>
 </body>
 </html>
