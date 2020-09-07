@@ -5,8 +5,12 @@
     <title>Emails Editor</title>
 </head>
 <body>
-    <div id="empty-emails-editor"></div>
-    <div id="emails-editor"></div>
+    <div class="widget-container">
+        <div id="empty-emails-editor"></div>
+    </div>
+    <div class="widget-container">
+        <div id="emails-editor"></div>
+    </div>
     <script src="main.js"></script>
     <script>
         EmailsEditor(document.querySelector('#empty-emails-editor'));
@@ -31,5 +35,10 @@
             emailsEditorOptions,
         );
     </script>
+    <style>
+        .widget-container {
+            padding: 50px 100px;
+        }
+    </style>
 </body>
 </html>
