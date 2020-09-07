@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .emails-editor {
     background: #FFFFFF;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
 }
 
 .emails-editor .emails-editor-content {
@@ -15,7 +21,6 @@
     border: 1px solid #C3C2CF;
     box-sizing: border-box;
     border-radius: 4px;
-    display: flex;
     list-style: none;
     padding-inline-start: 0;
     padding: 4px;
@@ -64,7 +69,7 @@
 .emails-editor .email-input {
     border: none;
     margin: 4px;
-    font-family: Open Sans;
+    font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
