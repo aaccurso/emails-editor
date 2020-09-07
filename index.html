@@ -5,11 +5,15 @@
     <title>Emails Editor</title>
 </head>
 <body>
+    <h1>Emails Editor</h1>
+    <h2>Basic usage</h2>
     <div class="widget-container">
         <div id="empty-emails-editor"></div>
     </div>
+    <h2>Advanced usage</h2>
     <div class="widget-container">
         <div id="emails-editor"></div>
+        <p id="initial-emails-count"></p>
     </div>
     <script src="main.js"></script>
     <script>
@@ -29,15 +33,22 @@
                     isValid: true,
                 },
             ],
+            headerTitle: 'Share <strong>Board name</strong> with others',
         };
-        EmailsEditor(
+        const emailsEditor = EmailsEditor(
             document.querySelector('#emails-editor'),
             emailsEditorOptions,
         );
+        document.querySelector('#initial-emails-count').innerHTML = `
+            Initial emails count: ${emailsEditor.getEmails().length}
+        `;
     </script>
     <style>
         .widget-container {
             padding: 50px 100px;
+        }
+        h1, h2 {
+            font-family: 'Open Sans', sans-serif;
         }
     </style>
 </body>
