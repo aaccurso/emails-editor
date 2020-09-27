@@ -55,4 +55,4 @@ const emails = emailsEditor.getEmails();
 
 ## Demo
 
-You can find a demo of the component at [aaccurso.me/emails-editor](aaccurso.me/emails-editor).
+You can find a demo of the component at [aaccurso.me/emails-editor](http://aaccurso.me/emails-editor).
